@@ -3,26 +3,23 @@
 ![Build Image](https://api.travis-ci.org/hold11/CDIO_del2.svg)
 
 ```                                            
- _____                 _                      _  _
-|_   _| ___  ___  ___ |_| ___  ___  ___  ___ |_|| |
-  | |  | -_||  _||   || ||   || . ||_ -|| . || || |
-  |_|  |___||_|  |_|_||_||_|_||_  ||___||  _||_||_|
-                              |___|     |_|        
+__________.__                 __     ________                __                                 ________  
+\______   \  | _____    ____ |  | __ \______ \ _____ _______|  | __ ____   ____   ______ ______ \_____  \
+ |    |  _/  | \__  \ _/ ___\|  |/ /  |    |  \\__  \\_  __ \  |/ //    \_/ __ \ /  ___//  ___/   _(__  <
+ |    |   \  |__/ __ \\  \___|    <   |    `   \/ __ \|  | \/    <|   |  \  ___/ \___ \ \___ \   /       \
+ |______  /____(____  /\___  >__|_ \ /_______  (____  /__|  |__|_ \___|  /\___  >____  >____  > /______  /
+        \/          \/     \/     \/         \/     \/           \/    \/     \/     \/     \/         \/
+
 ```
 
-Terningspil er et turbaseret spil til to deltagere. Deltagerne kaster på skift med to terninger. Ved hvert terningskast optjener spilleren points. Den første spiller der opnår 40 point har vundet.
+Dark Blackness 3 is a turn-based animersive strategy game for two players. The participants takes turns tossing two dice. After every dice toss, the player moves to one of 12 fields and either earns or loses points. The first player to reach 3000 points will win the game.
 
-//Dokumentationen kan findes under vores [dokumentationsside](http://hold11.github.io/CDIO_del1/docs).
+Documentation will be available from our [JavaDoc site](http://hold11.github.io/CDIO_del2).
 
 ## Teamlead
 
-For dette projekt er Troels Just Christoffersen teamlead. Dvs. at Troels er den eneste der accepterer / afslår pull-requests.
+For this project, Troels Just Christoffersen is teamlead, meaning that Troels is the only team member accepting / rejecting pull-requests.
 
-*/
-## Brug
-
-Spillet kan køres ved blot at køre vores jar-fil (altså ved at dobbeltklikke på den). Er filen hentet fra DTU's campusnet, hedder filen `11_del1_launch.jar`, er den hentet her fra GitHub, hedder filen `Launch.v.1.1.2.jar`.
-/*
 ## License
 
 GNU General Public License v3.0
