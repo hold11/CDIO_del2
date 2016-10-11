@@ -1,5 +1,7 @@
 # CDIO_del2
 
+![Build Image](https://api.travis-ci.org/hold11/CDIO_del2.svg)
+
 ```                                            
  _____                 _                      _  _
 |_   _| ___  ___  ___ |_| ___  ___  ___  ___ |_|| |
