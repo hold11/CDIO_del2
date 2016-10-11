@@ -12,7 +12,7 @@ __________.__                 __     ________                __                 
 
 ```
 
-Dark Blackness 3 is a turn-based animersive strategy game for two players. The participants takes turns tossing two dice. After every dice toss, the player moves to one of 12 fields and either earns or loses points. The first player to reach 3000 points will win the game.
+Dark Blackness 3 is a turn-based an animersive strategy game for two players. The participants takes turns tossing two dice. After every dice toss, the player moves to one of 12 fields and either earns or loses points. The first player to reach 3000 points will win the game.
 
 Documentation will be available from our [JavaDoc site](http://hold11.github.io/CDIO_del2).
 
