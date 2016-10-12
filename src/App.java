@@ -3,6 +3,6 @@
  */
 public class App {
     public static void main(String[] args) {
-        System.out.println("CDIO_del2");
+        Die d = new Die(12);
     }
 }
