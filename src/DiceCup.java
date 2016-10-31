@@ -16,38 +16,38 @@ import java.lang.*;
  * This class is a die cup (a cup holding multiple dice. It basically handles all the dice in the game.
  * @version 1.1.1
  */
-public class DieCup {
+public class DiceCup {
     private Collection<Die> dice = new ArrayList<Die>();
     private Collection<Integer> results = new ArrayList<Integer>();
 
     private static int dieCount;
     private static int faceCount;
 
-    public DieCup() {
+    public DiceCup() {
         this.dieCount = 2;
         this.faceCount = 6;
         initDice();
     }
 
-    public DieCup(int dieCount) {
+    public DiceCup(int dieCount) {
         this.dieCount  = dieCount;
         this.faceCount = 6;
         initDice();
     }
 
-    public DieCup(int dieCount, int faceCount) {
+    public DiceCup(int dieCount, int faceCount) {
         this.dieCount  = dieCount;
         this.faceCount = faceCount;
         initDice();
     }
 
-    public DieCup(int dieCount, Die die) {
+    public DiceCup(int dieCount, Die die) {
         this.dieCount = dieCount;
 
         initDice(die);
     }
 
-    public DieCup(Collection<Die> dice) {
+    public DiceCup(Collection<Die> dice) {
         this.dieCount = dice.size();
         initDice(dice);
     }
