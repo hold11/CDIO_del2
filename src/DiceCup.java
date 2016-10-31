@@ -30,24 +30,32 @@ public class DiceCup {
     }
 
     public DiceCup(int dieCount) {
+        if (dieCount < 2)
+            throw new IndexOutOfBoundsException("There should be at least 2 dice.");
         this.dieCount  = dieCount;
         this.faceCount = 6;
         initDice();
     }
 
     public DiceCup(int dieCount, int faceCount) {
+        if (dieCount < 2)
+            throw new IndexOutOfBoundsException("There should be at least 2 dice.");
         this.dieCount  = dieCount;
         this.faceCount = faceCount;
         initDice();
     }
 
     public DiceCup(int dieCount, Die die) {
+        if (dieCount < 2)
+            throw new IndexOutOfBoundsException("There should be at least 2 dice.");
         this.dieCount = dieCount;
 
         initDice(die);
     }
 
     public DiceCup(Collection<Die> dice) {
+        if (dice.size() < 2)
+            throw new IndexOutOfBoundsException("There should be at least 2 dice.");
         this.dieCount = dice.size();
         initDice(dice);
     }
