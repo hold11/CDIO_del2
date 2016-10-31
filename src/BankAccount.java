@@ -21,7 +21,7 @@ public class BankAccount {
         return balance;
     }
 
-    public void desposit(int value) {
+    public void deposit(int value) {
         if (value > 0)
             this.balance += value;
     }
