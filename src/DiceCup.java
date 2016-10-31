@@ -20,35 +20,35 @@ public class DiceCup {
     private Collection<Die> dice = new ArrayList<Die>();
     private Collection<Integer> results = new ArrayList<Integer>();
 
-    private static int dieCount;
+    private static int diceCount;
     private static int faceCount;
 
     public DiceCup() {
-        this.dieCount = 2;
+        this.diceCount = 2;
         this.faceCount = 6;
         initDice();
     }
 
-    public DiceCup(int dieCount) {
-        if (dieCount < 2)
+    public DiceCup(int diceCount) {
+        if (diceCount < 2)
             throw new IndexOutOfBoundsException("There should be at least 2 dice.");
-        this.dieCount  = dieCount;
+        this.diceCount = diceCount;
         this.faceCount = 6;
         initDice();
     }
 
-    public DiceCup(int dieCount, int faceCount) {
-        if (dieCount < 2)
+    public DiceCup(int diceCount, int faceCount) {
+        if (diceCount < 2)
             throw new IndexOutOfBoundsException("There should be at least 2 dice.");
-        this.dieCount  = dieCount;
+        this.diceCount = diceCount;
         this.faceCount = faceCount;
         initDice();
     }
 
-    public DiceCup(int dieCount, Die die) {
-        if (dieCount < 2)
+    public DiceCup(int diceCount, Die die) {
+        if (diceCount < 2)
             throw new IndexOutOfBoundsException("There should be at least 2 dice.");
-        this.dieCount = dieCount;
+        this.diceCount = diceCount;
 
         initDice(die);
     }
@@ -56,17 +56,17 @@ public class DiceCup {
     public DiceCup(Collection<Die> dice) {
         if (dice.size() < 2)
             throw new IndexOutOfBoundsException("There should be at least 2 dice.");
-        this.dieCount = dice.size();
+        this.diceCount = dice.size();
         initDice(dice);
     }
 
     private void initDice() {
-        for (int i = 0; i < dieCount; i++)
+        for (int i = 0; i < diceCount; i++)
             this.dice.add(new Die(faceCount));
     }
 
     private void initDice(Die die) {
-        for (int i = 0; i < dieCount; i++)
+        for (int i = 0; i < diceCount; i++)
             this.dice.add(die);
     }
 
