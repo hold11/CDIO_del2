@@ -43,7 +43,7 @@ public class Die {
      */
     public int getRolledDieResult() {
         roll();
-        return getDieResult();
+        return this.result;
     }
 
     /**
