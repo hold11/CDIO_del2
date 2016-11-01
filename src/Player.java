@@ -20,12 +20,10 @@ public class Player {
 //    private int playerScore; // This has been phased out
     private int playerID;
     private String playerName;
-
+    private BankAccount playerAccount;
 
     private static int playerCount = 1;
     private static List<Player> players = new ArrayList<Player>();
-    
-    public BankAccount playerAccount; // TODO: Should this be private or public (awo thinks public)
 
     public Player(String playerName) {
 //        this.playerScore = 0;
@@ -51,6 +49,10 @@ public class Player {
         playerCount++;
 
         players.add(this);
+    }
+
+    public BankAccount getPlayerAccount() {
+        return playerAccount;
     }
 
     /**
