@@ -17,16 +17,19 @@ import java.util.List;
  * @version 1.0.1
  */
 public class Player {
-    private int playerScore;
+//    private int playerScore; // This has been phased out
     private int playerID;
     private String playerName;
 
-    private static int playerCount = 1;
 
+    private static int playerCount = 1;
     private static List<Player> players = new ArrayList<Player>();
+    
+    public BankAccount playerAccount; // TODO: Should this be private or public (awo thinks public)
 
     public Player(String playerName) {
-        this.playerScore = 0;
+//        this.playerScore = 0;
+        this.playerAccount.setBalance(0);
         this.playerName = playerName;
         this.playerID = playerCount;
 
@@ -40,7 +43,8 @@ public class Player {
      * automatically get added to the players list (a list of all the players).
      */
     public Player() {
-        this.playerScore = 0;
+//        this.playerScore = 0;
+        this.playerAccount.setBalance(0);
         this.playerName = String.format("Player %s", playerCount);
         this.playerID = playerCount;
 
@@ -53,17 +57,17 @@ public class Player {
      * Returns the score of a specific player.
      * @return int
      */
-    public int getPlayerScore() {
-        return this.playerScore;
-    }
+//    public int getPlayerScore() {
+//        return this.playerScore;
+//    }
 
     /**
      * This method adds a value to a specific player's score.
      * @param playerScore the wanted value that has to be added to the player.
      */
-    public void addPlayerScore(int playerScore) {
-        this.playerScore += playerScore;
-    }
+//    public void addPlayerScore(int playerScore) {
+//        this.playerScore += playerScore;
+//    }
 
     /**
      * Returns the player ID of a specific player.
@@ -108,7 +112,7 @@ public class Player {
     public static void reset() {
         playerCount = 1;
         players.clear();
-        for (Player player : players)
-            player.addPlayerScore(-player.getPlayerScore());
+//        for (Player player : players) // TODO: Does the playerAccount have to be reset?
+//            player.addPlayerScore(-player.getPlayerScore());
     }
 }
