@@ -83,8 +83,10 @@ public class DiceCup {
     public void roll() {
         this.results.clear();
 
-        for (Iterator<Die> diceIter = dice.iterator(); diceIter.hasNext(); )
-            this.results.add(diceIter.next().getRolledDieResult());
+        for (Die die : dice)
+            this.results.add(die.getRolledDieResult());
+        //for (Iterator<Die> diceIter = dice.iterator(); diceIter.hasNext(); )
+        //    this.results.add(diceIter.next().getRolledDieResult());
     }
 
     public Collection<Integer> getResults() {
