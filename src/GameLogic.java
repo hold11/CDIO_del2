@@ -13,15 +13,33 @@
  */
 
 public class GameLogic {
-    private DiceCup cup = new DiceCup();
-
+    private DiceCup diceCup;
     private int currentPlayer;
+    private final int WINNERSCORE = 3000; //score needed for winning game.
 
-    public void playTurn(Player){
+    public GameLogic(){
+        diceCup = new DiceCup(); //Creates 2 dice with 6 sides.
+    }
+
+    public void playTurn(Player currentPlayer){
+
+        if (hasWon(currentPlayer))
+        {
+            // call method
+            return;
+        }
+
 
     }
 
     public void nextPlayer(){
 
+    }
+
+    public boolean hasWon(Player player) {
+        if (player.getPlayerScore() >= WINNERSCORE)
+            return true;
+        else
+            return false;
     }
 }
