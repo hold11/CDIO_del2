@@ -32,17 +32,17 @@ public enum Field {
 
     public String toString() /*throws NoSuchFieldException*/ {
         switch(this) {
-            case TOWER: return "Tower";
-            case CRATER: return "Crater";
-            case PALACE_GATES: return "Palace gates";
-            case COLD_DESERT: return "Cold desert";
-            case WALLED_CITY: return "Walled city";
-            case MONASTERY: return "Monastery";
-            case BLACK_CAVE: return "Black cave";
-            case HUTS_IN_THE_MOUNTAIN: return "Huts in the mountain";
-            case THE_WEREWALL: return "The werewall";
-            case THE_PIT: return "The pit";
-            case GOLDMINE: return "Goldmine";
+            case TOWER: return Lang.msg("Tower");
+            case CRATER: return Lang.msg("Crater");
+            case PALACE_GATES: return Lang.msg("PalaceGates");
+            case COLD_DESERT: return Lang.msg("ColdDesert");
+            case WALLED_CITY: return Lang.msg("WalledCity");
+            case MONASTERY: return Lang.msg("Monastery");
+            case BLACK_CAVE: return Lang.msg("BlackCave");
+            case HUTS_IN_THE_MOUNTAIN: return Lang.msg("HutsInTheMountain");
+            case THE_WEREWALL: return Lang.msg("TheWerewall");
+            case THE_PIT: return Lang.msg("ThePit");
+            case GOLDMINE: return Lang.msg("Goldmine");
             default: return "null";
         }
     }
