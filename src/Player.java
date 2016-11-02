@@ -9,6 +9,7 @@
     /`           ´\                                      |
 */
 
+import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class Player {
     private int playerID;
     private String playerName;
     private BankAccount playerAccount;
+    private final int START_BALANCE = 300;
 
     private static int playerCount = 1;
     private static List<Player> players = new ArrayList<Player>();
@@ -33,7 +35,7 @@ public class Player {
         this.playerName = String.format("Player %s", playerCount);
         this.playerID = playerCount;
 
-        this.playerAccount = new BankAccount(0);
+        this.playerAccount = new BankAccount(START_BALANCE);
 
         playerCount++;
 
@@ -44,7 +46,7 @@ public class Player {
         this.playerName = playerName;
         this.playerID = playerCount;
 
-        this.playerAccount = new BankAccount(0);
+        this.playerAccount = new BankAccount(START_BALANCE);
 
         playerCount++;
 

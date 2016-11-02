@@ -1,3 +1,5 @@
+import java.util.Collection;
+
 /**
  * Created by tjc on 1/11/16.
  */
@@ -15,31 +17,44 @@
 public class GameLogic {
     private DiceCup diceCup;
     private int currentPlayer;
-    private final int WINNERSCORE = 3000; //score needed for winning game.
+    private int playerTurn = 0;
+    private Collection<Player> players = Player.getPlayersList();
+    private final int WINNERSCORE = 3000; //score needed to win the game.
 
     public GameLogic(){
         diceCup = new DiceCup(); //Creates 2 dice with 6 sides.
     }
 
-    public void playTurn(Player currentPlayer){
+    public void playTurn(Player currentPlayer) {
+        diceCup.roll();
 
-        if (hasWon(currentPlayer))
-        {
+        if (hasWon(currentPlayer)) {
             // call method
             return;
         }
 
-
-    }
-
-    public void nextPlayer(){
-
     }
 
     public boolean hasWon(Player player) {
-        if (player.getPlayerScore() >= WINNERSCORE)
+        if (player.getPlayerAccount().getBalance() >= WINNERSCORE)
             return true;
         else
             return false;
+    }
+    public void nextPlayer() {
+        if (playerTurn < players.size())
+
+            playerTurn++;
+
+        else
+
+            playerTurn = 1;
+    }
+    public int getPlayerTurn() { return playerTurn; }
+
+    public DiceCup getDiceCup() { return diceCup; }
+
+    public void congratulations() {
+
     }
 }
