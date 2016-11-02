@@ -54,7 +54,7 @@ public class TUI {
             System.out.println(f.getScoreValue() * -1 + " " + Lang.msg("BeenWithdrawnFrom") + " " + p.getPlayerName() + Lang.msg("Account"));
 
         if (f.checkSpecialAttribute(Field.SpecialAttribute.EXTRA_TURN))
-            System.out.println(p.getPlayerName() + " " +Lang.msg("GotAnotherTurn"));
+            System.out.println(p.getPlayerName() + " " + Lang.msg("GotAnotherTurn"));
     }
 
     public static String requestStr(String message) {

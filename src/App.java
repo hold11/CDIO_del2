@@ -11,8 +11,8 @@ public class App {
         GameLogic game = new GameLogic();
         TUI tui = new TUI(Player.getPlayersList());
 
-        //game.playTurn(game.getCurrentPlayer());
-        //tui.printLandedOnField(game.getCurrentPlayer(),game.getCurrentPlayer().getCurrentField());
+        game.playTurn(game.getCurrentPlayer());
+        tui.printLandedOnField(game.getCurrentPlayer(),game.getCurrentPlayer().getCurrentField());
 
         tui.printLandedOnField(p1, Field.THE_PIT);
         System.out.println();
