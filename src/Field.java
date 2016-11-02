@@ -17,15 +17,15 @@ public enum Field {
     private final int value;
     private final int fieldNumber;
 
-    Field cName;
+//    Field cName; // TODO: I think this is not going to be used, in that case: delete.
 
     Field(int value, int fieldNumber) {
         this.value = value;
         this.fieldNumber = fieldNumber;
     }
 
-    public String getFieldName() throws NoSuchFieldException {
-        switch(cName) {
+    public String toString() /*throws NoSuchFieldException*/ {
+        switch(this) {
             case TOWER: return "Tower";
             case CRATER: return "Crater";
             case PALACE_GATES: return "Palace gates";
@@ -37,8 +37,9 @@ public enum Field {
             case THE_WEREWALL: return "The werewall";
             case THE_PIT: return "The pit";
             case GOLDMINE: return "Goldmine";
+            default: return "null";
         }
-        throw new NoSuchFieldException();
+        //throw new NoSuchFieldException();
     }
 }
 
