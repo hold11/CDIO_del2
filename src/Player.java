@@ -25,26 +25,26 @@ public class Player {
     private static int playerCount = 1;
     private static List<Player> players = new ArrayList<Player>();
 
-    public Player(String playerName) {
-//        this.playerScore = 0;
-        this.playerAccount.setBalance(0);
-        this.playerName = playerName;
+    /**
+     * The Player does not take any arguments. When constructing a new player, the new player will
+     * automatically get added to the players list (a list of all the players).
+     */
+    public Player() {
+        this.playerName = String.format("Player %s", playerCount);
         this.playerID = playerCount;
+
+        this.playerAccount = new BankAccount(0);
 
         playerCount++;
 
         players.add(this);
     }
 
-    /**
-     * The Player does not take any arguments. When constructing a new player, the new player will
-     * automatically get added to the players list (a list of all the players).
-     */
-    public Player() {
-//        this.playerScore = 0;
-        this.playerAccount.setBalance(0);
-        this.playerName = String.format("Player %s", playerCount);
+    public Player(String playerName) {
+        this.playerName = playerName;
         this.playerID = playerCount;
+
+        this.playerAccount = new BankAccount(0);
 
         playerCount++;
 
