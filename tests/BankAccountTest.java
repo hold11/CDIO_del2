@@ -46,6 +46,11 @@ public class BankAccountTest {
 
     @Test
     public void deposit() throws Exception {
+        p1.getPlayerAccount().deposit(200);
+        p2.getPlayerAccount().deposit(300);
+
+        assertEquals(500, p1.getPlayerAccount().getBalance());
+        assertEquals(600, p2.getPlayerAccount().getBalance());
 
     }
 
