@@ -26,15 +26,28 @@ public class Cli {
             if (p.getPlayerName().length() > this.longestPlayerName)
                 longestPlayerName = p.getPlayerName().length();
         }
+        System.out.println("\n=====================================");
     }
 
     private int getPlayerNameSpaces(Player p) { return longestPlayerName - p.getPlayerName().length(); }
-    
+
+    public String getPlayerName(Player p) {
+        String outName;
+        outName = p.getPlayerName();
+        for (int i = 0; i < getPlayerNameSpaces(p); i++)
+            outName += " ";
+        return outName;
+    }
+
     public void printPlayerName(Player p) {
         System.out.print(p.getPlayerName());
         for (int i = 0; i < getPlayerNameSpaces(p); i++)
             System.out.print(" ");
         System.out.print(": ");
+    }
+
+    public void printLandedOnField(Player p, Field f) {
+        System.out.println(getPlayerName(p) + ": Landed on " + f);
     }
 
     public static String requestStr(String message) {
