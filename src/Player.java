@@ -20,37 +20,39 @@ public class Player {
 //    private int playerScore; // This has been phased out
     private int playerID;
     private String playerName;
-
+    private BankAccount playerAccount;
 
     private static int playerCount = 1;
     private static List<Player> players = new ArrayList<Player>();
-    
-    public BankAccount playerAccount; // TODO: Should this be private or public (awo thinks public)
-
-    public Player(String playerName) {
-//        this.playerScore = 0;
-        this.playerAccount.setBalance(0);
-        this.playerName = playerName;
-        this.playerID = playerCount;
-
-        playerCount++;
-
-        players.add(this);
-    }
 
     /**
      * The Player does not take any arguments. When constructing a new player, the new player will
      * automatically get added to the players list (a list of all the players).
      */
     public Player() {
-//        this.playerScore = 0;
-        this.playerAccount.setBalance(0);
         this.playerName = String.format("Player %s", playerCount);
         this.playerID = playerCount;
+
+        this.playerAccount = new BankAccount(0);
 
         playerCount++;
 
         players.add(this);
+    }
+
+    public Player(String playerName) {
+        this.playerName = playerName;
+        this.playerID = playerCount;
+
+        this.playerAccount = new BankAccount(0);
+
+        playerCount++;
+
+        players.add(this);
+    }
+
+    public BankAccount getPlayerAccount() {
+        return playerAccount;
     }
 
     /**
