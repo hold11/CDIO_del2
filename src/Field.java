@@ -24,7 +24,7 @@ public enum Field {
         this.fieldNumber = fieldNumber;
     }
 
-    public String getFieldName() {
+    public String getFieldName() throws NoSuchFieldException {
         switch(cName) {
             case TOWER: return "Tower";
             case CRATER: return "Crater";
@@ -37,8 +37,8 @@ public enum Field {
             case THE_WEREWALL: return "The werewall";
             case THE_PIT: return "The pit";
             case GOLDMINE: return "Goldmine";
-
         }
+        throw new NoSuchFieldException();
     }
 }
 
