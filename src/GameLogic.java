@@ -33,6 +33,10 @@ public class GameLogic {
             return;
         }
 
+        if (currentPlayer.getCurrentField().checkSpecialAttribute(Field.SpecialAttribute.EXTRA_TURN))
+            nextPlayer(true);
+        else
+            nextPlayer(false);
     }
 
     public boolean hasWon(Player player) {
@@ -41,20 +45,20 @@ public class GameLogic {
         else
             return false;
     }
-    public void nextPlayer() {
+
+    public void nextPlayer(boolean repeatedTurn) {
+        if (repeatedTurn)
+            return;
+
         if (playerTurn < players.size())
-
             playerTurn++;
-
         else
-
             playerTurn = 1;
     }
+
     public int getPlayerTurn() { return playerTurn; }
 
+    public Player getCurrentPlayer() { return Player.findPlayer(playerTurn); }
+
     public DiceCup getDiceCup() { return diceCup; }
-
-    public void congratulations() {
-
-    }
 }
