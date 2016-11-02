@@ -11,12 +11,12 @@ public class TUI {
     public TUI(Collection<Player> players) {
         this.players = players;
         if (players.size() <= 0)
-            throw new NullPointerException("Players has to be defined before a TUI can be constructed.");
+            throw new NullPointerException(Lang.msg("ERR_PlayersDefined"));
         System.out.println();
-        System.out.println("     Welcome to Black Darkness 3");
+        System.out.println("     " + Lang.msg("Welcome") + " Black Darkness 3");
         System.out.println("=====================================");
 
-        System.out.println("Soldiers that has entered the battlefield:");
+        System.out.println(Lang.msg("EnteredSoldiers"));
 
         // This to place all : the same place when typing out a name to the console.
         this.longestPlayerName = 0;
@@ -47,14 +47,14 @@ public class TUI {
     }
 
     public void printLandedOnField(Player p, Field f) {
-        System.out.println(getPlayerName(p) + ": Landed on " + f);
+        System.out.println(getPlayerName(p) + ": " + Lang.msg("LandedOn") + " " + f);
         if (f.getScoreValue() > 0)
-            System.out.println(f.getScoreValue() + " has been deposited to " + p.getPlayerName() + "'s account.");
+            System.out.println(f.getScoreValue() + " " + Lang.msg("BeenDespositedTo") + " " + p.getPlayerName() + Lang.msg("Account"));
         else if (f.getScoreValue() < 0)
-            System.out.println(f.getScoreValue() + " has been withdrawn from " + p.getPlayerName() + "'s account.");
+            System.out.println(f.getScoreValue() * -1 + " " + Lang.msg("BeenWithdrawnFrom") + " " + p.getPlayerName() + Lang.msg("Account"));
 
         if (f.checkSpecialAttribute(Field.SpecialAttribute.EXTRA_TURN))
-            System.out.println(p.getPlayerName() + " has got another turn!");
+            System.out.println(p.getPlayerName() + " " +Lang.msg("GotAnotherTurn"));
     }
 
     public static String requestStr(String message) {
