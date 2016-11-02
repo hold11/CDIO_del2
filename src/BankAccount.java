@@ -7,6 +7,7 @@ public class BankAccount {
     
     private static int idCount;
 
+
     public BankAccount(int balance) {
         this.balance = balance;
         id = idCount;
@@ -29,5 +30,9 @@ public class BankAccount {
     public void withdraw(int value) {
         if (value > 0)
             this.balance -= value;
+        if (balance < 0){
+            balance = 0;
+
+        };
     }
 }
