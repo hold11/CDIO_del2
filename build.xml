@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <project name="CDIO_del2" default="tests" basedir=".">
-  <property name="main.build.dir" value="build/main" />
-  <property name="main.src.dir" value="src" />
-  <property name="test.build.dir" value="build/tests" />
-  <property name="test.src.dir" value="tests" />
+  <property name="main.build.dir" scoreValue="build/main" />
+  <property name="main.src.dir" scoreValue="src" />
+  <property name="test.build.dir" scoreValue="build/tests" />
+  <property name="test.src.dir" scoreValue="tests" />
 
   <path id="classpath.base" />
 
