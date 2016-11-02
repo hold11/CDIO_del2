@@ -48,6 +48,13 @@ public class TUI {
 
     public void printLandedOnField(Player p, Field f) {
         System.out.println(getPlayerName(p) + ": Landed on " + f);
+        if (f.getScoreValue() > 0)
+            System.out.println(f.getScoreValue() + " has been deposited to " + p.getPlayerName() + "'s account.");
+        else if (f.getScoreValue() < 0)
+            System.out.println(f.getScoreValue() + " has been withdrawn from " + p.getPlayerName() + "'s account.");
+
+        if (f.checkSpecialAttribute(Field.SpecialAttribute.EXTRA_TURN))
+            System.out.println(p.getPlayerName() + " has got another turn!");
     }
 
     public static String requestStr(String message) {

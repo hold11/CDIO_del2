@@ -27,6 +27,8 @@ public class Player {
     private static int playerCount = 1;
     private static List<Player> players = new ArrayList<Player>();
 
+    private Field currentField;
+
     /**
      * The Player does not take any arguments. When constructing a new player, the new player will
      * automatically get added to the players list (a list of all the players).
@@ -100,6 +102,10 @@ public class Player {
                 return players.get(i);
 
         throw new IllegalArgumentException("Could not find a player the following ID: " + playerID);
+    }
+
+    public Field getCurrentField() {
+        return currentField;
     }
 
     /**
