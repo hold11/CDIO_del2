@@ -56,6 +56,11 @@ public class BankAccountTest {
 
     @Test
     public void withdraw() throws Exception {
+        p1.getPlayerAccount().withdraw(100);
+        p2.getPlayerAccount().withdraw(200);
+
+        assertEquals(200, p1.getPlayerAccount().getBalance());
+        assertEquals(100, p2.getPlayerAccount().getBalance());
 
     }
 
