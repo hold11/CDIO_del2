@@ -74,6 +74,8 @@ public class TUI {
     public static String requestStr(String message) {
         System.out.print(message + ": ");
         Scanner in = new Scanner(System.in);
-        return in.nextLine();
+        String returnMsg = in.nextLine();
+        in.close();
+        return returnMsg;
     }
 }
