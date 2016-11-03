@@ -9,7 +9,6 @@
     /`           ´\                                      |
 */
 
-import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,16 +17,14 @@ import java.util.List;
  * @version 1.0.1
  */
 public class Player {
-//    private int playerScore; // This has been phased out
     private int playerID;
     private String playerName;
     private BankAccount playerAccount;
-    private final int START_BALANCE = 300;
+    private Field currentField;
+    private final int STARTING_BALANCE = 1000;
 
     private static int playerCount = 1;
     private static List<Player> players = new ArrayList<Player>();
-
-    private Field currentField;
 
     /**
      * The Player does not take any arguments. When constructing a new player, the new player will
@@ -37,7 +34,7 @@ public class Player {
         this.playerName = String.format("Player %s", playerCount);
         this.playerID = playerCount;
 
-        this.playerAccount = new BankAccount(START_BALANCE);
+        this.playerAccount = new BankAccount(STARTING_BALANCE);
 
         playerCount++;
 
@@ -48,7 +45,7 @@ public class Player {
         this.playerName = playerName;
         this.playerID = playerCount;
 
-        this.playerAccount = new BankAccount(START_BALANCE);
+        this.playerAccount = new BankAccount(STARTING_BALANCE);
 
         playerCount++;
 
@@ -58,22 +55,6 @@ public class Player {
     public BankAccount getPlayerAccount() {
         return playerAccount;
     }
-
-    /**
-     * Returns the score of a specific player.
-     * @return int
-     */
-//    public int getPlayerScore() {
-//        return this.playerScore;
-//    }
-
-    /**
-     * This method adds a value to a specific player's score.
-     * @param playerScore the wanted value that has to be added to the player.
-     */
-//    public void addPlayerScore(int playerScore) {
-//        this.playerScore += playerScore;
-//    }
 
     /**
      * Returns the player ID of a specific player.
@@ -91,6 +72,14 @@ public class Player {
         return playerName;
     }
 
+    public Field getCurrentField() {
+        return this.currentField;
+    }
+
+    public void setCurrentField(Field f) {
+        this.currentField = f;
+    }
+
     /**
      * Returns the specific player with the specified ID.
      * @param playerID the ID of the wanted player
@@ -102,10 +91,6 @@ public class Player {
                 return players.get(i);
 
         throw new IndexOutOfBoundsException("Could not find a player the following ID: " + playerID);
-    }
-
-    public Field getCurrentField() {
-        return currentField;
     }
 
     /**
@@ -122,7 +107,5 @@ public class Player {
     public static void reset() {
         playerCount = 1;
         players.clear();
-//        for (Player player : players) // TODO: Does the playerAccount have to be reset?
-//            player.addPlayerScore(-player.getPlayerScore());
     }
 }

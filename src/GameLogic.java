@@ -16,24 +16,23 @@ import java.util.Collection;
 
 public class GameLogic {
     private DiceCup diceCup;
-    private int currentPlayer;
     private int playerTurn = 1;
     private Collection<Player> players = Player.getPlayersList();
     private final int WINNERSCORE = 3000; //score needed to win the game.
 
     public GameLogic(){
-        diceCup = new DiceCup(); //Creates 2 dice with 6 sides.
+        diceCup = new DiceCup(); //Creates the default dicecup with 2 dice with 6 sides.
     }
 
     public void playTurn(Player currentPlayer) {
-        diceCup.roll();
-
         if (hasWon(currentPlayer)) {
-            // call method
+            //TODO: call method
             return;
         }
 
-        //TODO: NullPointer Exception because the player not necasarily stands on any field yet.
+        diceCup.roll();
+
+        //TODO: NullPointer Exception because the player doesn't necessarily stand on any field yet.
         if (currentPlayer.getCurrentField().checkSpecialAttribute(Field.SpecialAttribute.EXTRA_TURN))
             nextPlayer(true);
         else
@@ -62,4 +61,12 @@ public class GameLogic {
     public Player getCurrentPlayer() { return Player.findPlayer(playerTurn); }
 
     public DiceCup getDiceCup() { return diceCup; }
+
+    public int getTotalEyes(DiceCup diceCup) {
+        int total = 0;
+
+        for (int i: diceCup.getResults())
+            total += i;
+        return total;
+    }
 }

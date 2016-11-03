@@ -2,17 +2,17 @@
  * Created by emilh on 01-11-2016.
  */
 public enum Field {
-    TOWER(250, 1, SpecialAttribute.NONE),
-    CRATER(-100, 2, SpecialAttribute.NONE),
-    PALACE_GATES(100, 3, SpecialAttribute.NONE),
-    COLD_DESERT(-20, 4, SpecialAttribute.NONE),
-    WALLED_CITY(180, 5, SpecialAttribute.NONE),
-    MONASTERY(0, 6, SpecialAttribute.NONE),
-    BLACK_CAVE(-70, 7, SpecialAttribute.NONE),
-    HUTS_IN_THE_MOUNTAIN(60, 8, SpecialAttribute.NONE),
-    THE_WEREWALL(-80, 9, SpecialAttribute.EXTRA_TURN),
-    THE_PIT(-50, 10, SpecialAttribute.NONE),
-    GOLDMINE(650, 11, SpecialAttribute.NONE);
+    TOWER(250, 2, SpecialAttribute.NONE),
+    CRATER(-100, 3, SpecialAttribute.NONE),
+    PALACE_GATES(100, 4, SpecialAttribute.NONE),
+    COLD_DESERT(-20, 5, SpecialAttribute.NONE),
+    WALLED_CITY(180, 6, SpecialAttribute.NONE),
+    MONASTERY(0, 7, SpecialAttribute.NONE),
+    BLACK_CAVE(-70, 8, SpecialAttribute.NONE),
+    HUTS_IN_THE_MOUNTAIN(60, 9, SpecialAttribute.NONE),
+    THE_WEREWALL(-80, 10, SpecialAttribute.EXTRA_TURN),
+    THE_PIT(-50, 11, SpecialAttribute.NONE),
+    GOLDMINE(650, 12, SpecialAttribute.NONE);
 
     public enum SpecialAttribute {
         NONE, EXTRA_TURN;
@@ -21,8 +21,6 @@ public enum Field {
     private final SpecialAttribute specialAttribute;
     private final int scoreValue; // TODO: Rename scoreValue to something more descriptive
     private final int fieldID;
-
-//    Field cName; // TODO: I think this is not going to be used, in that case: delete.
 
     Field(int scoreValue, int fieldID, SpecialAttribute specialAttribute) {
         this.scoreValue = scoreValue;
