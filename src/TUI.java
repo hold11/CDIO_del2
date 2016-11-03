@@ -1,4 +1,5 @@
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -11,7 +12,7 @@ public class TUI {
     public TUI(Collection<Player> players) {
         this.players = players;
         if (players.size() <= 0)
-            throw new NullPointerException(Lang.msg("ERR_PlayersDefined"));
+            throw new NullPointerException("Players has to be defined before a TUI can be constructed.");
         System.out.println();
         System.out.println("     " + Lang.msg("Welcome") + " Black Darkness 3");
         System.out.println("=====================================");
@@ -20,7 +21,7 @@ public class TUI {
 
         // This to place all : the same place when typing out a name to the console.
         this.longestPlayerName = 0;
-        for (Player p : players)
+        for (Player p : this.players)
         {
             System.out.println(" * " + p.getPlayerName());
             if (p.getPlayerName().length() > this.longestPlayerName)
@@ -49,12 +50,25 @@ public class TUI {
     public void printLandedOnField(Player p, Field f) {
         System.out.println(getPlayerName(p) + ": " + Lang.msg("LandedOn") + " " + f);
         if (f.getScoreValue() > 0)
-            System.out.println(f.getScoreValue() + " " + Lang.msg("BeenDespositedTo") + " " + p.getPlayerName() + Lang.msg("Account"));
+            System.out.println(f.getScoreValue() + " " + Lang.msg("BeenDepositedTo") + " " + p.getPlayerName() + Lang.msg("Account"));
         else if (f.getScoreValue() < 0)
             System.out.println(f.getScoreValue() * -1 + " " + Lang.msg("BeenWithdrawnFrom") + " " + p.getPlayerName() + Lang.msg("Account"));
 
         if (f.checkSpecialAttribute(Field.SpecialAttribute.EXTRA_TURN))
             System.out.println(p.getPlayerName() + " " + Lang.msg("GotAnotherTurn"));
+    }
+
+    public void printTossedDice(Player p, Collection<Integer> tossedDice) {
+        System.out.print(getPlayerName(p) + " " + Lang.msg("Tossed") + " " + Lang.msg("A") + " ");
+
+        for (Iterator<Integer> tossedIter = tossedDice.iterator(); tossedIter.hasNext(); ) {
+            int toss = tossedIter.next();
+
+            if(!tossedIter.hasNext())
+                System.out.print(Lang.msg("And") + " " + toss + ".");
+            else
+                System.out.print(toss + ", ");
+        }
     }
 
     public static String requestStr(String message) {
