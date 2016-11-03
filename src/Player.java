@@ -101,7 +101,7 @@ public class Player {
             if (players.get(i).getPlayerID() == playerID)
                 return players.get(i);
 
-        throw new IllegalArgumentException("Could not find a player the following ID: " + playerID);
+        throw new IndexOutOfBoundsException("Could not find a player the following ID: " + playerID);
     }
 
     public Field getCurrentField() {

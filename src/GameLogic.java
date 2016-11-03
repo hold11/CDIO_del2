@@ -17,7 +17,7 @@ import java.util.Collection;
 public class GameLogic {
     private DiceCup diceCup;
     private int currentPlayer;
-    private int playerTurn = 0;
+    private int playerTurn = 1;
     private Collection<Player> players = Player.getPlayersList();
     private final int WINNERSCORE = 3000; //score needed to win the game.
 
@@ -33,6 +33,7 @@ public class GameLogic {
             return;
         }
 
+        //TODO: NullPointer Exception because the player not necasarily stands on any field yet.
         if (currentPlayer.getCurrentField().checkSpecialAttribute(Field.SpecialAttribute.EXTRA_TURN))
             nextPlayer(true);
         else
