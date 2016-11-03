@@ -3,17 +3,24 @@
  */
 public class App {
     public static void main(String[] args) {
-        Die d = new Die(6);
-        Player p1 = new Player();
-        Player p2 = new Player();
-        GameLogic g = new GameLogic();
+        Lang.setLanguage(args);
 
-        /*while (true) {
-            g.playTurn(g.getPlayerTurn(););
-            System.out.println(g.getDiceCup().getResults());
+        Player p1 = new Player(TUI.requestStr(Lang.msg("chooseName")));
+        Player p2 = new Player(TUI.requestStr(Lang.msg("chooseName")));
 
-            if (g.hasWon(Player.findPlayer(g.getPlayerTurn())))
-                return;
-        }*/
+        GameLogic game = new GameLogic();
+        TUI tui = new TUI(Player.getPlayersList());
+
+        game.playTurn(game.getCurrentPlayer());
+        tui.printLandedOnField(game.getCurrentPlayer(),game.getCurrentPlayer().getCurrentField());
+
+        tui.printLandedOnField(p1, Field.THE_PIT);
+        System.out.println();
+
+        tui.printLandedOnField(p2, Field.WALLED_CITY);
+        System.out.println();
+
+        tui.printLandedOnField(p1, Field.THE_WEREWALL);
+        System.out.println();
     }
 }
