@@ -32,15 +32,13 @@ public enum Field {
 
     private final SpecialAttr specialAttr;
     private final int scoreValue; // TODO: Rename scoreValue to something more descriptive
-    //private final int fieldID;
 
     Field(int scoreValue, SpecialAttr specialAttr) {
         this.scoreValue = scoreValue;
-        //this.fieldID = ordinal();
         this.specialAttr = specialAttr;
     }
 
-    public String toString() /*throws NoSuchFieldException*/ {
+    public String toString()  {
         switch(this) {
             case TOWER: return Lang.msg("Tower");
             case CRATER: return Lang.msg("Crater");

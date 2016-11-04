@@ -11,7 +11,7 @@
 
 /**
  * This Class contains the Main method and handles all calls between the CLI and the Gamelogic.
- * @version 1.0.0
+ * @version 1.0.5
  */
 public class App {
     public static void main(String[] args) {

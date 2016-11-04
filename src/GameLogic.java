@@ -46,18 +46,8 @@ public class GameLogic {
             return false;
     }
 
-//    public Player hasWon() {
-//        boolean aPlayerHasWon = false;
-//        for (Player p : Player.getPlayersList()) {
-//            if(p.getPlayerAccount().getBalance() >= WINNERSCORE) {
-//                aPlayerHasWon = true;
-//            }
-//        }
-//    }
-
     public void nextPlayer() {
-        if (getCurrentPlayer().getCurrentField().checkSpecialAttribute(Field.SpecialAttr.EXTRA_TURN))
-        {
+        if (getCurrentPlayer().getCurrentField().checkSpecialAttribute(Field.SpecialAttr.EXTRA_TURN)) {
             getCurrentPlayer().setCurrentField(null);
             return;
         }

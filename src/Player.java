@@ -14,7 +14,7 @@ import java.util.List;
 
 /**
  * This class is the player class.
- * @version 1.0.1
+ * @version 1.3.7
  */
 public class Player {
     private int playerID;
@@ -26,10 +26,6 @@ public class Player {
     private static int playerCount = 1;
     private static List<Player> players = new ArrayList<Player>();
 
-    /**
-     * The Player does not take any arguments. When constructing a new player, the new player will
-     * automatically get added to the players list (a list of all the players).
-     */
     public Player() {
         this.playerName = String.format("Player %s", playerCount);
         this.playerID = playerCount;
@@ -56,18 +52,10 @@ public class Player {
         return playerAccount;
     }
 
-    /**
-     * Returns the player ID of a specific player.
-     * @return int
-     */
     public int getPlayerID() {
         return playerID;
     }
 
-    /**
-     * Returns the player name of a specific player.
-     * @return String
-     */
     public String getPlayerName() {
         return playerName;
     }
@@ -80,11 +68,6 @@ public class Player {
         this.currentField = f;
     }
 
-    /**
-     * Returns the specific player with the specified ID.
-     * @param playerID the ID of the wanted player
-     * @return Player
-     */
     public static Player findPlayer(int playerID) {
         for (int i = 0; i < players.size(); i++)
             if (players.get(i).getPlayerID() == playerID)
@@ -93,17 +76,10 @@ public class Player {
         throw new IndexOutOfBoundsException("Could not find a player the following ID: " + playerID);
     }
 
-    /**
-     * Returns a list of all registered players.
-     * @return List of Player objects
-     */
     public static List<Player> getPlayersList() {
         return players;
     }
 
-    /**
-     * Resets the players list and the playerCount variables.
-     */
     public static void reset() {
         playerCount = 1;
         players.clear();

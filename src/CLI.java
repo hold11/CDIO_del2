@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 /**
  * This class contains the CLI methods required to print game play events to the user.
- * @version 1.0.0
+ * @version 1.1.2
  */
 public class CLI {
     private Collection<Player> players;
