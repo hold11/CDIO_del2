@@ -19,7 +19,7 @@ public class GameLogic {
     private DiceCup diceCup;
     private int playerTurn = 1;
     private Collection<Player> players = Player.getPlayersList();
-    private final int WINNERSCORE = 3000; //score needed to win the game.
+    public static final int WINNERSCORE = 3000; //score needed to win the game.
 
     public GameLogic(){
         diceCup = new DiceCup(); //Creates the default dicecup with 2 dice with 6 sides.
@@ -27,15 +27,16 @@ public class GameLogic {
 
     public void playTurn(Player currentPlayer) {
         if (hasWon(currentPlayer)) {
-            //TODO: call method
             return;
         }
         diceCup.roll();
 
         currentPlayer.setCurrentField(Field.values()[getTotalEyes(diceCup)-2]);
-        System.out.println("tmp");
-
-        //TODO: NullPointer Exception because the player doesn't necessarily stand on any field yet.
+        if (currentPlayer.getCurrentField().getScoreValue() < 0) {
+            currentPlayer.getPlayerAccount().withdraw(currentPlayer.getCurrentField().getScoreValue());
+        } else {
+            currentPlayer.getPlayerAccount().deposit(currentPlayer.getCurrentField().getScoreValue());
+        }
     }
 
     public boolean hasWon(Player player) {
@@ -44,6 +45,15 @@ public class GameLogic {
         else
             return false;
     }
+
+//    public Player hasWon() {
+//        boolean aPlayerHasWon = false;
+//        for (Player p : Player.getPlayersList()) {
+//            if(p.getPlayerAccount().getBalance() >= WINNERSCORE) {
+//                aPlayerHasWon = true;
+//            }
+//        }
+//    }
 
     public void nextPlayer() {
         if (getCurrentPlayer().getCurrentField().checkSpecialAttribute(Field.SpecialAttr.EXTRA_TURN))

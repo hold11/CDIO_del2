@@ -26,11 +26,25 @@ public class App {
         GameLogic game = new GameLogic();
         CLI cli = new CLI(Player.getPlayersList());
 
-        for (int i = 0; i < 20; i++) {
+//        p1.getPlayerAccount().setBalance(1000);
+//        p1.getPlayerAccount().deposit(34);
+//        System.out.println(p1.getPlayerAccount().getBalance());
+
+        boolean aPlayerHasWon = false;
+        do {
             game.playTurn(game.getCurrentPlayer());
             cli.printLandedOnField(game.getCurrentPlayer(), game.getCurrentPlayer().getCurrentField());
-            game.nextPlayer();
+
+            if (game.hasWon(game.getCurrentPlayer()))
+                aPlayerHasWon = true;
+            else
+                game.nextPlayer();
+
             System.out.println();
-        }
+        } while(!aPlayerHasWon);
+
+        System.out.println(game.getCurrentPlayer().getPlayerName() + " " + Lang.msg("IsWinner"));
+
+        System.out.println("Done");
     }
 }

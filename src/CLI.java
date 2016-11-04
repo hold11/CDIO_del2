@@ -66,6 +66,8 @@ public class CLI {
         else if (f.getScoreValue() < 0)
             System.out.println(f.getScoreValue() * -1 + " " + Lang.msg("BeenWithdrawnFrom") + " " + p.getPlayerName() + Lang.msg("Account"));
 
+        System.out.println(getPlayerName(p) + "'s " + Lang.msg("BalanceIs") + " " + p.getPlayerAccount().getBalance());
+
         if (f.checkSpecialAttribute(Field.SpecialAttr.EXTRA_TURN))
             System.out.println(p.getPlayerName() + " " + Lang.msg("GotAnotherTurn"));
     }
