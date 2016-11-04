@@ -27,15 +27,12 @@ public class GameLogic {
 
     public void playTurn(Player currentPlayer) {
         if (hasWon(currentPlayer)) {
-            //TODO: call method
+            System.out.println(currentPlayer.getPlayerName() + " " + Lang.msg("Winner"));
             return;
         }
         diceCup.roll();
 
         currentPlayer.setCurrentField(Field.values()[getTotalEyes(diceCup)-2]);
-        System.out.println("tmp");
-
-        //TODO: NullPointer Exception because the player doesn't necessarily stand on any field yet.
     }
 
     public boolean hasWon(Player player) {
