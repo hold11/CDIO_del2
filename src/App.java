@@ -17,18 +17,20 @@ public class App {
     public static void main(String[] args) {
         Lang.setLanguage(args);
 
-        Player p1 = new Player(CLI.requestStr(Lang.msg("chooseName")));
-        Player p2 = new Player(CLI.requestStr(Lang.msg("chooseName")));
+        //Player p1 = new Player(CLI.requestStr(Lang.msg("chooseName")));
+        //Player p2 = new Player(CLI.requestStr(Lang.msg("chooseName")));
+        Player p1 = new Player("Hans");
+        Player p2 = new Player("Grethe");
+
 
         GameLogic game = new GameLogic();
         CLI cli = new CLI(Player.getPlayersList());
 
-        game.playTurn(game.getCurrentPlayer());
-        cli.printLandedOnField(game.getCurrentPlayer(), game.getCurrentPlayer().getCurrentField());
-        System.out.println();
-
-        game.playTurn(game.getCurrentPlayer());
-        cli.printLandedOnField(game.getCurrentPlayer(), game.getCurrentPlayer().getCurrentField());
-        System.out.println();
+        for (int i = 0; i < 20; i++) {
+            game.playTurn(game.getCurrentPlayer());
+            cli.printLandedOnField(game.getCurrentPlayer(), game.getCurrentPlayer().getCurrentField());
+            game.nextPlayer();
+            System.out.println();
+        }
     }
 }

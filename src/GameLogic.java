@@ -32,13 +32,10 @@ public class GameLogic {
         }
         diceCup.roll();
 
-        currentPlayer.setCurrentField(Field.values()[getTotalEyes(diceCup)]);
+        currentPlayer.setCurrentField(Field.values()[getTotalEyes(diceCup)-2]);
+        System.out.println("tmp");
 
         //TODO: NullPointer Exception because the player doesn't necessarily stand on any field yet.
-        if (currentPlayer.getCurrentField().checkSpecialAttribute(Field.SpecialAttr.EXTRA_TURN))
-            nextPlayer(true);
-        else
-            nextPlayer(false);
     }
 
     public boolean hasWon(Player player) {
@@ -48,9 +45,12 @@ public class GameLogic {
             return false;
     }
 
-    public void nextPlayer(boolean repeatedTurn) {
-        if (repeatedTurn)
+    public void nextPlayer() {
+        if (getCurrentPlayer().getCurrentField().checkSpecialAttribute(Field.SpecialAttr.EXTRA_TURN))
+        {
+            getCurrentPlayer().setCurrentField(null);
             return;
+        }
 
         if (playerTurn < players.size())
             playerTurn++;
