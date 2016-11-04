@@ -43,7 +43,7 @@ public class App {
             System.out.println();
         } while(!aPlayerHasWon);
 
-        System.out.println(game.getCurrentPlayer().getPlayerName() + " " + Lang.msg("IsWinner"));
+        System.out.println(game.getCurrentPlayer().getPlayerName() + " " + Lang.msg("Winner"));
 
         System.out.println("Done");
     }
