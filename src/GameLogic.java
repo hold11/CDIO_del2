@@ -33,7 +33,7 @@ public class GameLogic {
         diceCup.roll();
 
         //TODO: NullPointer Exception because the player doesn't necessarily stand on any field yet.
-        if (currentPlayer.getCurrentField().checkSpecialAttribute(Field.SpecialAttribute.EXTRA_TURN))
+        if (currentPlayer.getCurrentField().checkSpecialAttribute(Field.SpecialAttr.EXTRA_TURN))
             nextPlayer(true);
         else
             nextPlayer(false);

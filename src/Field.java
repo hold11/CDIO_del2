@@ -2,30 +2,30 @@
  * Created by emilh on 01-11-2016.
  */
 public enum Field {
-    TOWER(250, 2, SpecialAttribute.NONE),
-    CRATER(-100, 3, SpecialAttribute.NONE),
-    PALACE_GATES(100, 4, SpecialAttribute.NONE),
-    COLD_DESERT(-20, 5, SpecialAttribute.NONE),
-    WALLED_CITY(180, 6, SpecialAttribute.NONE),
-    MONASTERY(0, 7, SpecialAttribute.NONE),
-    BLACK_CAVE(-70, 8, SpecialAttribute.NONE),
-    HUTS_IN_THE_MOUNTAIN(60, 9, SpecialAttribute.NONE),
-    THE_WEREWALL(-80, 10, SpecialAttribute.EXTRA_TURN),
-    THE_PIT(-50, 11, SpecialAttribute.NONE),
-    GOLDMINE(650, 12, SpecialAttribute.NONE);
+    TOWER(250, 2, SpecialAttr.NONE),
+    CRATER(-100, 3, SpecialAttr.NONE),
+    PALACE_GATES(100, 4, SpecialAttr.NONE),
+    COLD_DESERT(-20, 5, SpecialAttr.NONE),
+    WALLED_CITY(180, 6, SpecialAttr.NONE),
+    MONASTERY(0, 7, SpecialAttr.NONE),
+    BLACK_CAVE(-70, 8, SpecialAttr.NONE),
+    HUTS_IN_THE_MOUNTAIN(60, 9, SpecialAttr.NONE),
+    THE_WEREWALL(-80, 10, SpecialAttr.EXTRA_TURN),
+    THE_PIT(-50, 11, SpecialAttr.NONE),
+    GOLDMINE(650, 12, SpecialAttr.NONE);
 
-    public enum SpecialAttribute {
+    public enum SpecialAttr {
         NONE, EXTRA_TURN;
     };
 
-    private final SpecialAttribute specialAttribute;
+    private final SpecialAttr specialAttr;
     private final int scoreValue; // TODO: Rename scoreValue to something more descriptive
     private final int fieldID;
 
-    Field(int scoreValue, int fieldID, SpecialAttribute specialAttribute) {
+    Field(int scoreValue, int fieldID, SpecialAttr specialAttr) {
         this.scoreValue = scoreValue;
         this.fieldID = fieldID;
-        this.specialAttribute = specialAttribute;
+        this.specialAttr = specialAttr;
     }
 
     public String toString() /*throws NoSuchFieldException*/ {
@@ -53,7 +53,7 @@ public enum Field {
         return fieldID;
     }
 
-    public boolean checkSpecialAttribute(SpecialAttribute specialAttribute) {
-        return (this.specialAttribute == specialAttribute);
+    public boolean checkSpecialAttribute(SpecialAttr specialAttr) {
+        return (this.specialAttr == specialAttr);
     }
 }
