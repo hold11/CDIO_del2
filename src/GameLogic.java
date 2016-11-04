@@ -1,43 +1,41 @@
-import java.util.Collection;
-
-/**
- * Created by tjc on 1/11/16.
- */
 /*
            ,                                             |
           /#\         _         _     _    ___   ___     | Projekt: Black Darkness 3 - CDIO_del2
          /###\       | |__   _ | | __| |  /_  | /_  |    | Version: v1.0.0
         /#####\      | '_ \ / \| |/ _  |    | |   | |    |
-       /##,-,##\     | | | | O | | ( | |   _| |_ _| |_   | Anders Wiberg Olsen (s165241), Emil Johan Høj (s152282),
+       /##,-,##\     | | | | O | | ( | |   _| |_ _| |_   | Anders Wiberg Olsen (s165241), Emil Johan Høg (s152282),
       /##(   )##\    |_| |_|\_/|_|\__,_|  |_____|_____|  | Iman Chelhi (s165228), Troels Just Christoffersen (s120052)
      /#.--   --.#\                                       | Sebastian Tibor Bakonyvári (s145918), Valentin Leon Christensen (s152735)
     /`           ´\                                      |
  */
 
+import java.util.Collection;
+
+/**
+ * This class contains all rules and actual game play, this is where the magic happens.
+ * @version 1.0.1
+ */
 public class GameLogic {
     private DiceCup diceCup;
-    private int currentPlayer;
     private int playerTurn = 1;
     private Collection<Player> players = Player.getPlayersList();
     private final int WINNERSCORE = 3000; //score needed to win the game.
 
     public GameLogic(){
-        diceCup = new DiceCup(); //Creates 2 dice with 6 sides.
+        diceCup = new DiceCup(); //Creates the default dicecup with 2 dice with 6 sides.
     }
 
     public void playTurn(Player currentPlayer) {
-        diceCup.roll();
-
         if (hasWon(currentPlayer)) {
-            // call method
+            //TODO: call method
             return;
         }
+        diceCup.roll();
 
-        //TODO: NullPointer Exception because the player not necasarily stands on any field yet.
-        if (currentPlayer.getCurrentField().checkSpecialAttribute(Field.SpecialAttribute.EXTRA_TURN))
-            nextPlayer(true);
-        else
-            nextPlayer(false);
+        currentPlayer.setCurrentField(Field.values()[getTotalEyes(diceCup)-2]);
+        System.out.println("tmp");
+
+        //TODO: NullPointer Exception because the player doesn't necessarily stand on any field yet.
     }
 
     public boolean hasWon(Player player) {
@@ -47,9 +45,12 @@ public class GameLogic {
             return false;
     }
 
-    public void nextPlayer(boolean repeatedTurn) {
-        if (repeatedTurn)
+    public void nextPlayer() {
+        if (getCurrentPlayer().getCurrentField().checkSpecialAttribute(Field.SpecialAttr.EXTRA_TURN))
+        {
+            getCurrentPlayer().setCurrentField(null);
             return;
+        }
 
         if (playerTurn < players.size())
             playerTurn++;
@@ -62,4 +63,12 @@ public class GameLogic {
     public Player getCurrentPlayer() { return Player.findPlayer(playerTurn); }
 
     public DiceCup getDiceCup() { return diceCup; }
+
+    public int getTotalEyes(DiceCup diceCup) {
+        int total = 0;
+
+        for (int i: diceCup.getResults())
+            total += i;
+        return total;
+    }
 }

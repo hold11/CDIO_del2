@@ -10,7 +10,6 @@ import static org.junit.Assert.*;
 public class BankAccountTest {
     private BankAccount playerAccount;
     private Player p1, p2;
-    private final int START_BALANCE = 300;
 
     @Before
     public void setUp() throws Exception {
@@ -39,8 +38,8 @@ public class BankAccountTest {
 
     @Test
     public void getBalance() throws Exception {
-        assertEquals(300, p1.getPlayerAccount().getBalance());
-        assertEquals(300, p2.getPlayerAccount().getBalance());
+        assertEquals(1000, p1.getPlayerAccount().getBalance());
+        assertEquals(1000, p2.getPlayerAccount().getBalance());
 
     }
 
@@ -49,8 +48,8 @@ public class BankAccountTest {
         p1.getPlayerAccount().deposit(200);
         p2.getPlayerAccount().deposit(300);
 
-        assertEquals(500, p1.getPlayerAccount().getBalance());
-        assertEquals(600, p2.getPlayerAccount().getBalance());
+        assertEquals(1200, p1.getPlayerAccount().getBalance());
+        assertEquals(1300, p2.getPlayerAccount().getBalance());
 
     }
 
@@ -59,15 +58,15 @@ public class BankAccountTest {
         p1.getPlayerAccount().withdraw(100);
         p2.getPlayerAccount().withdraw(200);
 
-        assertEquals(200, p1.getPlayerAccount().getBalance());
-        assertEquals(100, p2.getPlayerAccount().getBalance());
+        assertEquals(900, p1.getPlayerAccount().getBalance());
+        assertEquals(800, p2.getPlayerAccount().getBalance());
 
     }
 
     @Test
     public void withdrawNegative() throws Exception {
-        p1.getPlayerAccount().withdraw(400);
-        p2.getPlayerAccount().withdraw(500);
+        p1.getPlayerAccount().withdraw(1500);
+        p2.getPlayerAccount().withdraw(1500);
 
         assertEquals(0, p1.getPlayerAccount().getBalance());
         assertEquals(0, p2.getPlayerAccount().getBalance());

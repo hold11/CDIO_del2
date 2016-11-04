@@ -1,18 +1,30 @@
+/*
+           ,                                             |
+          /#\         _         _     _    ___   ___     | Projekt: Black Darkness 3 - CDIO_del2
+         /###\       | |__   _ | | __| |  /_  | /_  |    | Version: v1.0.0
+        /#####\      | '_ \ / \| |/ _  |    | |   | |    |
+       /##,-,##\     | | | | O | | ( | |   _| |_ _| |_   | Anders Wiberg Olsen (s165241), Emil Johan Høg (s152282),
+      /##(   )##\    |_| |_|\_/|_|\__,_|  |_____|_____|  | Iman Chelhi (s165228), Troels Just Christoffersen (s120052)
+     /#.--   --.#\                                       | Sebastian Tibor Bakonyvári (s145918), Valentin Leon Christensen (s152735)
+    /`           ´\                                      |
+ */
+
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Scanner;
 
 /**
- * Created by awo on 02/11/16.
+ * This class contains the CLI methods required to print game play events to the user.
+ * @version 1.0.0
  */
-public class TUI {
+public class CLI {
     private Collection<Player> players;
     private int longestPlayerName;
 
-    public TUI(Collection<Player> players) {
+    public CLI(Collection<Player> players) {
         this.players = players;
         if (players.size() <= 0)
-            throw new NullPointerException("Players has to be defined before a TUI can be constructed.");
+            throw new NullPointerException("Players has to be defined before a CLI can be constructed.");
         System.out.println();
         System.out.println("     " + Lang.msg("Welcome") + " Black Darkness 3");
         System.out.println("=====================================");
@@ -54,7 +66,7 @@ public class TUI {
         else if (f.getScoreValue() < 0)
             System.out.println(f.getScoreValue() * -1 + " " + Lang.msg("BeenWithdrawnFrom") + " " + p.getPlayerName() + Lang.msg("Account"));
 
-        if (f.checkSpecialAttribute(Field.SpecialAttribute.EXTRA_TURN))
+        if (f.checkSpecialAttribute(Field.SpecialAttr.EXTRA_TURN))
             System.out.println(p.getPlayerName() + " " + Lang.msg("GotAnotherTurn"));
     }
 
@@ -72,10 +84,10 @@ public class TUI {
     }
 
     public static String requestStr(String message) {
-        System.out.print(message + ": ");
+        String Msg;
         Scanner in = new Scanner(System.in);
-        String returnMsg = in.nextLine();
-        in.close();
-        return returnMsg;
+        System.out.print(message + ": ");
+        Msg = in.nextLine();
+        return Msg;
     }
 }

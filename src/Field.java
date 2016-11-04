@@ -1,33 +1,43 @@
+/*
+           ,                                             |
+          /#\         _         _     _    ___   ___     | Projekt: Black Darkness 3 - CDIO_del2
+         /###\       | |__   _ | | __| |  /_  | /_  |    | Version: v1.0.0
+        /#####\      | '_ \ / \| |/ _  |    | |   | |    |
+       /##,-,##\     | | | | O | | ( | |   _| |_ _| |_   | Anders Wiberg Olsen (s165241), Emil Johan Høg (s152282),
+      /##(   )##\    |_| |_|\_/|_|\__,_|  |_____|_____|  | Iman Chelhi (s165228), Troels Just Christoffersen (s120052)
+     /#.--   --.#\                                       | Sebastian Tibor Bakonyvári (s145918), Valentin Leon Christensen (s152735)
+    /`           ´\                                      |
+ */
+
 /**
- * Created by emilh on 01-11-2016.
+ * This enum class contains all game fields and methods related to these.
+ * @version 1.0.1
  */
 public enum Field {
-    TOWER(250, 1, SpecialAttribute.NONE),
-    CRATER(-100, 2, SpecialAttribute.NONE),
-    PALACE_GATES(100, 3, SpecialAttribute.NONE),
-    COLD_DESERT(-20, 4, SpecialAttribute.NONE),
-    WALLED_CITY(180, 5, SpecialAttribute.NONE),
-    MONASTERY(0, 6, SpecialAttribute.NONE),
-    BLACK_CAVE(-70, 7, SpecialAttribute.NONE),
-    HUTS_IN_THE_MOUNTAIN(60, 8, SpecialAttribute.NONE),
-    THE_WEREWALL(-80, 9, SpecialAttribute.EXTRA_TURN),
-    THE_PIT(-50, 10, SpecialAttribute.NONE),
-    GOLDMINE(650, 11, SpecialAttribute.NONE);
+    TOWER(250, SpecialAttr.NONE),
+    CRATER(-100, SpecialAttr.NONE),
+    PALACE_GATES(100, SpecialAttr.NONE),
+    COLD_DESERT(-20, SpecialAttr.NONE),
+    WALLED_CITY(180, SpecialAttr.NONE),
+    MONASTERY(0, SpecialAttr.NONE),
+    BLACK_CAVE(-70, SpecialAttr.NONE),
+    HUTS_IN_THE_MOUNTAIN(60, SpecialAttr.NONE),
+    THE_WEREWALL(-80, SpecialAttr.EXTRA_TURN),
+    THE_PIT(-50, SpecialAttr.NONE),
+    GOLDMINE(650, SpecialAttr.NONE);
 
-    public enum SpecialAttribute {
+    public enum SpecialAttr {
         NONE, EXTRA_TURN;
     };
 
-    private final SpecialAttribute specialAttribute;
+    private final SpecialAttr specialAttr;
     private final int scoreValue; // TODO: Rename scoreValue to something more descriptive
-    private final int fieldID;
+    //private final int fieldID;
 
-//    Field cName; // TODO: I think this is not going to be used, in that case: delete.
-
-    Field(int scoreValue, int fieldID, SpecialAttribute specialAttribute) {
+    Field(int scoreValue, SpecialAttr specialAttr) {
         this.scoreValue = scoreValue;
-        this.fieldID = fieldID;
-        this.specialAttribute = specialAttribute;
+        //this.fieldID = ordinal();
+        this.specialAttr = specialAttr;
     }
 
     public String toString() /*throws NoSuchFieldException*/ {
@@ -51,11 +61,9 @@ public enum Field {
         return scoreValue;
     }
 
-    public int getFieldID() {
-        return fieldID;
+    public boolean checkSpecialAttribute(SpecialAttr specialAttr) {
+        return (this.specialAttr == specialAttr);
     }
 
-    public boolean checkSpecialAttribute(SpecialAttribute specialAttribute) {
-        return (this.specialAttribute == specialAttribute);
-    }
+
 }
