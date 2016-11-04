@@ -34,6 +34,10 @@ public class PlayerTest {
 
     }
 
+    /**
+     * Tests if player account can be fetched from player.
+     * @throws Exception
+     */
     @Test
     public void getPlayerAccount() throws Exception {
         p1.getPlayerAccount().setBalance(150);
