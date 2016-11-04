@@ -1,7 +1,7 @@
 /*
            ,                                             |
           /#\         _         _     _    ___   ___     | Projekt: Black Darkness 3 - CDIO_del2
-         /###\       | |__   _ | | __| |  /_  | /_  |    | Version: v1.0.0
+         /###\       | |__   _ | | __| |  /_  | /_  |    | Version: v1.0.6
         /#####\      | '_ \ / \| |/ _  |    | |   | |    |
        /##,-,##\     | | | | O | | ( | |   _| |_ _| |_   | Anders Wiberg Olsen (s165241), Emil Johan Høg (s152282),
       /##(   )##\    |_| |_|\_/|_|\__,_|  |_____|_____|  | Iman Chelhi (s165228), Troels Just Christoffersen (s120052)
@@ -11,7 +11,7 @@
 
 /**
  * This Class contains the Main method and handles all calls between the CLI and the Gamelogic.
- * @version 1.0.5
+ * @version 1.0.6
  */
 public class App {
     public static void main(String[] args) {
