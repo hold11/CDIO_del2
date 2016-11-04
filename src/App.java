@@ -11,26 +11,33 @@
 
 /**
  * This Class contains the Main method and handles all calls between the CLI and the Gamelogic.
- * @version 1.0.0
+ * @version 1.0.5
  */
 public class App {
     public static void main(String[] args) {
         Lang.setLanguage(args);
 
-        //Player p1 = new Player(CLI.requestStr(Lang.msg("chooseName")));
-        //Player p2 = new Player(CLI.requestStr(Lang.msg("chooseName")));
-        Player p1 = new Player("Hans");
-        Player p2 = new Player("Grethe");
-
+        Player p1 = new Player(CLI.requestStr(Lang.msg("chooseName")));
+        Player p2 = new Player(CLI.requestStr(Lang.msg("chooseName")));
 
         GameLogic game = new GameLogic();
         CLI cli = new CLI(Player.getPlayersList());
 
-        for (int i = 0; i < 20; i++) {
+        boolean aPlayerHasWon = false;
+        do {
             game.playTurn(game.getCurrentPlayer());
-            cli.printLandedOnField(game.getCurrentPlayer(), game.getCurrentPlayer().getCurrentField());
-            game.nextPlayer();
+            cli.printTossedDice(game.getCurrentPlayer(), game.getDiceCup().getResults());
             System.out.println();
-        }
+            cli.printLandedOnField(game.getCurrentPlayer(), game.getCurrentPlayer().getCurrentField());
+
+            if (game.hasWon(game.getCurrentPlayer()))
+                aPlayerHasWon = true;
+            else
+                game.nextPlayer();
+
+            System.out.println();
+        } while(!aPlayerHasWon);
+
+        System.out.println(game.getCurrentPlayer().getPlayerName() + " " + Lang.msg("Winner"));
     }
 }
