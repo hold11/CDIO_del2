@@ -17,22 +17,17 @@ public class App {
     public static void main(String[] args) {
         Lang.setLanguage(args);
 
-        //Player p1 = new Player(CLI.requestStr(Lang.msg("chooseName")));
-        //Player p2 = new Player(CLI.requestStr(Lang.msg("chooseName")));
-        Player p1 = new Player("Hans");
-        Player p2 = new Player("Grethe");
-
+        Player p1 = new Player(CLI.requestStr(Lang.msg("chooseName")));
+        Player p2 = new Player(CLI.requestStr(Lang.msg("chooseName")));
 
         GameLogic game = new GameLogic();
         CLI cli = new CLI(Player.getPlayersList());
 
-//        p1.getPlayerAccount().setBalance(1000);
-//        p1.getPlayerAccount().deposit(34);
-//        System.out.println(p1.getPlayerAccount().getBalance());
-
         boolean aPlayerHasWon = false;
         do {
             game.playTurn(game.getCurrentPlayer());
+            cli.printTossedDice(game.getCurrentPlayer(), game.getDiceCup().getResults());
+            System.out.println();
             cli.printLandedOnField(game.getCurrentPlayer(), game.getCurrentPlayer().getCurrentField());
 
             if (game.hasWon(game.getCurrentPlayer()))
@@ -44,7 +39,5 @@ public class App {
         } while(!aPlayerHasWon);
 
         System.out.println(game.getCurrentPlayer().getPlayerName() + " " + Lang.msg("Winner"));
-
-        System.out.println("Done");
     }
 }

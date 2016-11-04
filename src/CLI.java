@@ -60,20 +60,23 @@ public class CLI {
     }
 
     public void printLandedOnField(Player p, Field f) {
+        String spaces = "  ";
+        for (int i = 0; i < longestPlayerName; i++)
+            spaces += " ";
         System.out.println(getPlayerName(p) + ": " + Lang.msg("LandedOn") + " " + f);
         if (f.getScoreValue() > 0)
-            System.out.println(f.getScoreValue() + " " + Lang.msg("BeenDepositedTo") + " " + p.getPlayerName() + Lang.msg("Account"));
+            System.out.println(spaces + f.getScoreValue() + " " + Lang.msg("BeenDepositedTo") + " " + p.getPlayerName() + Lang.msg("Account"));
         else if (f.getScoreValue() < 0)
-            System.out.println(f.getScoreValue() * -1 + " " + Lang.msg("BeenWithdrawnFrom") + " " + p.getPlayerName() + Lang.msg("Account"));
+            System.out.println(spaces + f.getScoreValue() * -1 + " " + Lang.msg("BeenWithdrawnFrom") + " " + p.getPlayerName() + Lang.msg("Account"));
 
-        System.out.println(getPlayerName(p) + "'s " + Lang.msg("BalanceIs") + " " + p.getPlayerAccount().getBalance());
+        System.out.println(spaces + p.getPlayerName() + "'s " + Lang.msg("BalanceIs") + " " + p.getPlayerAccount().getBalance());
 
         if (f.checkSpecialAttribute(Field.SpecialAttr.EXTRA_TURN))
             System.out.println(p.getPlayerName() + " " + Lang.msg("GotAnotherTurn"));
     }
 
     public void printTossedDice(Player p, Collection<Integer> tossedDice) {
-        System.out.print(getPlayerName(p) + " " + Lang.msg("Tossed") + " " + Lang.msg("A") + " ");
+        System.out.print(getPlayerName(p) + ": " + Lang.msg("Tossed") + " ");
 
         for (Iterator<Integer> tossedIter = tossedDice.iterator(); tossedIter.hasNext(); ) {
             int toss = tossedIter.next();
