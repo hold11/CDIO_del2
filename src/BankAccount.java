@@ -11,7 +11,7 @@
 
 /**
  * This class contains describes the player bankaccount and associated withdraw and deposit methods.
- * @version 1.0.0
+ * @version 1.0.2
  */
 
 public class BankAccount {
@@ -19,7 +19,6 @@ public class BankAccount {
     private int id = 0;
     
     private static int idCount;
-
 
     public BankAccount(int balance) {
         this.balance = balance;
@@ -45,7 +44,6 @@ public class BankAccount {
             this.balance -= value;
         if (balance < 0){
             balance = 0;
-
         };
     }
 }

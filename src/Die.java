@@ -21,10 +21,6 @@ public class Die {
 
     private static Random rand;
 
-    /**
-     * When a Die object gets constructed, the rand variable gets initialized. Nothing else happens.
-     * The default faceCount for a Die object is 6 faces.
-     */
     public Die() {
         this.faceCount = 6;
         result         = 0;
@@ -37,42 +33,22 @@ public class Die {
         rand           = new Random();
     }
 
-    /**
-     * Rolls the die, and returns the value of the face.
-     * @return int
-     */
     public int getRolledDieResult() {
         roll();
         return this.result;
     }
 
-    /**
-     * Gets the result of the rolled die.
-     * @return int
-     */
     public int getDieResult() {
         return this.result;
     }
 
-
-    /**
-     * Sets the result variable of the die to a random face of the die.
-     */
     public void roll() {
         this.result = rand.nextInt(faceCount) + 1;
     }
 
-    /**
-     * Sets the faceCount value to the wanted amount of faces for the die.
-     * @param faceCount sets the faceCount value.
-     */
     public void setFaceCount(int faceCount) {
         this.faceCount = faceCount;
     }
 
-    /**
-     * Gets the faceCount value of the die.
-     * @return int
-     */
     public int getFaceCount() { return this.faceCount; }
 }

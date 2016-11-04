@@ -85,8 +85,6 @@ public class DiceCup {
 
         for (Die die : dice)
             this.results.add(die.getRolledDieResult());
-        //for (Iterator<Die> diceIter = dice.iterator(); diceIter.hasNext(); )
-        //    this.results.add(diceIter.next().getRolledDieResult());
     }
 
     public Collection<Integer> getResults() {
