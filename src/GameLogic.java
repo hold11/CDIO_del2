@@ -31,8 +31,8 @@ public class GameLogic {
         }
         diceCup.roll();
 
-        currentPlayer.setCurrentField(Field.values()[getTotalEyes(diceCup)-2]);
-        if (currentPlayer.getCurrentField().getScoreValue() < 0) {
+        currentPlayer.setCurrentField(Field.values()[getTotalEyes(diceCup)-2]); // Fields enumerated [0-10], dice rolls [2-12] QED.
+        if (currentPlayer.getCurrentField().getScoreValue() < 0) {              // If field score is negative, withdraw. Else deposit.
             currentPlayer.getPlayerAccount().withdraw(currentPlayer.getCurrentField().getScoreValue());
         } else {
             currentPlayer.getPlayerAccount().deposit(currentPlayer.getCurrentField().getScoreValue());
@@ -48,7 +48,7 @@ public class GameLogic {
 
     public void nextPlayer() {
         if (getCurrentPlayer().getCurrentField().checkSpecialAttribute(Field.SpecialAttr.EXTRA_TURN)) {
-            getCurrentPlayer().setCurrentField(null);
+            getCurrentPlayer().setCurrentField(null);   // Setting current field to null, so extra turn does not repeat.
             return;
         }
 
