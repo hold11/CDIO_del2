@@ -23,18 +23,18 @@ public class Lang {
 
     public static ResourceBundle resourceBundle;
 
-    public static String msg(String message) { return resourceBundle.getString(message); }  // Returns value, fx. chooseName
+    public static String msg(String message) { return resourceBundle.getString(message); }
 
     public static void setLanguage(String[] args) {
-        if (args.length != 2) { // Setting default language to en_US
+        if (args.length != 2) {
             lang    = "en";
             country = "US";
-        } else {                // Setting language to user selected values
+        } else {
             lang    = args[0];
             country = args[1];
         }
 
         locale = new Locale(lang, country);
-        resourceBundle = ResourceBundle.getBundle("lang", locale); // The resourceBundle refers to the translations in the lang bundle.
+        resourceBundle = ResourceBundle.getBundle("lang", locale);
     }
 }

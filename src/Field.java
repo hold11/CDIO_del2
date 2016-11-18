@@ -13,7 +13,7 @@
  * This enum class contains all game fields and methods related to these.
  * @version 1.0.1
  */
-public enum Field {     // All fields in enumerator are public static final
+public enum Field {
     TOWER(250, SpecialAttr.NONE),
     CRATER(-100, SpecialAttr.NONE),
     PALACE_GATES(100, SpecialAttr.NONE),
